@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
 
     // Cached component references
     Rigidbody2D myRigidBody;
+    CapsuleCollider2D myCapsuleCollider;
     Animator myAnimator;
 
     
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
     {
         myRigidBody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
+        myCapsuleCollider = GetComponent<CapsuleCollider2D>();
     }
 
     // Update is called once per frame
@@ -34,7 +36,11 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
-        if( CrossPlatformInputManager.GetButtonDown("Jump"))
+        int groundMask = LayerMask.GetMask("Ground");
+        bool isTouchingGround = myCapsuleCollider.IsTouchingLayers(groundMask);
+        if (!isTouchingGround) { return; }
+
+        if ( CrossPlatformInputManager.GetButtonDown("Jump"))
         {
             Vector2 jumpVelocityToAdd = new Vector2(0, jumpSpeed);
             myRigidBody.velocity += jumpVelocityToAdd;
