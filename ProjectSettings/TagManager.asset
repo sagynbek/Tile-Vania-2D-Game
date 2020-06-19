@@ -17,7 +17,7 @@ TagManager:
   - Ladder
   - Player
   - Bacgkround
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -46,6 +46,9 @@ TagManager:
     locked: 0
   - name: Ladder
     uniqueID: 714204567
+    locked: 0
+  - name: Enemy
+    uniqueID: 4145966047
     locked: 0
   - name: Player
     uniqueID: 999723635
