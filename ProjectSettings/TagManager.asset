@@ -18,7 +18,7 @@ TagManager:
   - Player
   - Bacgkround
   - Enemy
-  - 
+  - Hazards
   - 
   - 
   - 
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 4145966047
+    locked: 0
+  - name: Hazards
+    uniqueID: 3310609695
     locked: 0
   - name: Player
     uniqueID: 999723635
