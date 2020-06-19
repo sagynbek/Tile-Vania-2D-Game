@@ -2627,6 +2627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 5
+  jumpSpeed: 28
 --- !u!1 &1467272532
 GameObject:
   m_ObjectHideFlags: 0
@@ -2679,6 +2680,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2478149376641944453, guid: 375768aa8d6762a44ba2ca4d174b30a4,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3815826378443558339, guid: 375768aa8d6762a44ba2ca4d174b30a4,
         type: 3}
       propertyPath: m_LocalPosition.x
