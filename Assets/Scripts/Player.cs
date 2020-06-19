@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
 
     // State
     bool isAlive = true;
+    float gravityScaleAtStart;
 
     // Cached component references
     Rigidbody2D myRigidBody;
@@ -25,24 +26,29 @@ public class Player : MonoBehaviour
         myRigidBody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         myCapsuleCollider = GetComponent<CapsuleCollider2D>();
+        gravityScaleAtStart = myRigidBody.gravityScale;
     }
 
     // Update is called once per frame
     void Update()
     {
         Run();
+        ClimbLadder();
         FlipSprite();
         Jump();
-        ClimbLadder();
     }
 
     private void ClimbLadder()
     {
         bool isTouchingLadder = myCapsuleCollider.IsTouchingLayers(LayerMask.GetMask("Ladder"));
+        
         if (!isTouchingLadder) {
             myAnimator.SetBool("Climbing", false);
+            myRigidBody.gravityScale = gravityScaleAtStart;
             return;
         }
+
+        myRigidBody.gravityScale = 0f;
 
         var controlThrow = CrossPlatformInputManager.GetAxis("Vertical"); // Value between -1 and +1
         myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, controlThrow * climbSpeed);
