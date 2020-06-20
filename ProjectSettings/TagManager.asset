@@ -19,7 +19,7 @@ TagManager:
   - Bacgkround
   - Enemy
   - Hazards
-  - 
+  - Interactables
   - 
   - 
   - 
@@ -58,4 +58,7 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 3930974119
+    locked: 0
+  - name: Interactables
+    uniqueID: 3898447123
     locked: 0
